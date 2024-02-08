@@ -1,0 +1,141 @@
+
+package steppingstone5recipe;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ * Diana Sanda
+ * southern New Hampshire university
+ */
+
+
+//class with private fields.
+
+public class Steppingstone5_Recipe {
+
+    private static Object reply;
+
+    private String recipeName;
+    
+    private int servings;
+    
+    ArrayList<String> recipeIngredients = new ArrayList();
+    
+    private int totalRecipeCalories;
+    
+    
+    //mutators and accessors for the class variables.
+    //public nethods without private methods
+    
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
+    }
+     
+    public String getRecipeName() {
+        return recipeName;
+    }
+    
+    public void setServings(int servings) {
+        this.servings = servings;
+    }
+    
+    public int getServings() {
+        return servings;
+    }
+    
+    public void setRecipeIngredients(ArrayList<String> recipeIngredients) {
+        this.recipeIngredients = recipeIngredients;   
+    }
+    
+    public ArrayList<String> recipeIngredients() {
+        return recipeIngredients;
+    }
+    
+    public void setTotalRecipeCalories(double totalRecipeCalories) {
+        this.totalRecipeCalories = (int) totalRecipeCalories;
+    }
+    
+    public int getTotalRecipeCalories() {
+        return totalRecipeCalories;
+    }
+    
+    //initial constructor
+    public Steppingstone5_Recipe() {
+        this.recipeName = "";
+        this.servings = 0; // value with appropriate data type
+        this.recipeIngredients = new  ArrayList<String>();
+        this.totalRecipeCalories = 0;    
+    }
+    
+    //overloaded constructor
+    public Steppingstone5_Recipe(String recipeName, int servings, ArrayList<String> recipeIngredients,
+            double totalRecipeCalories)
+    {
+    
+        this.recipeName = recipeName;
+        this.servings = servings;
+        this.recipeIngredients = recipeIngredients;
+        this.totalRecipeCalories = (int) totalRecipeCalories;
+    }
+    
+    //print recipe method will be called in main
+    public void printRecipe() {
+        int singleServingCalories = (totalRecipeCalories / servings);
+        System.out.println("Recipe: " + recipeName);
+        System.out.println("Serves: " + servings);
+        System.out.println("Ingredients: ");
+        
+        for (int i = 0; i < recipeIngredients.size(); i++){
+            String ingredient = recipeIngredients.get(i);
+            System.out.println(ingredient);
+        }
+        
+        System.out.println("Each Serving Has " + singleServingCalories + "Calories.");
+    }
+    
+    
+    public Steppingstone5_Recipe createNewRecipe()  {
+        int totalRecipeCalories = 0;
+        ArrayList <String> recipeIngredients = new ArrayList();
+        boolean addMoreIngredients = true;
+        
+        Scanner scnr = new Scanner(System.in);
+        
+        System.out.println("Please enter the recipe name: ");
+        String recipeName = scnr.nextLine();
+        
+        System.out.println("Please enter the number of servings: ");
+        int servings = scnr.nextInt();//data type & Scanner assignment method for servings variable
+        
+        //Do-while loop is used to add ingredients
+                
+        do {
+            System.out.println("Please enter the ingredient name or type end if you are finished entering ingredients: ");
+            String ingredientName = scnr.next();
+            
+            if (ingredientName.toLowerCase().equals("end")) {
+                addMoreIngredients = false;
+            } else {
+                recipeIngredients.add(ingredientName);
+                addMoreIngredients = true;
+        
+                System.out.println("Please enter the ingredient amount: ");
+                float ingredientAmount = scnr.nextFloat();
+            
+                System.out.println("Please enter the ingredient Calories: ");
+                int ingredientCalories = scnr.nextInt();
+                
+            totalRecipeCalories = (int) (ingredientCalories * ingredientAmount);
+            }
+           
+       } 
+        while (!reply.equals("n"));
+        
+        Steppingstone5_Recipe recipe1;
+        recipe1 = new Steppingstone5_Recipe(recipeName,
+                servings, recipeIngredients, totalRecipeCalories);
+        recipe1.printRecipe();
+        return null;
+    }
+}
