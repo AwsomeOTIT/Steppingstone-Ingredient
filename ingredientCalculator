@@ -1,0 +1,75 @@
+*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package theingredientclass;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Diana Sanda
+ * data,methods and variables are combined in this class below.
+ * Main method is on the subclass under this package. 
+ */
+public class TheIngredientClass {
+
+    // private fields
+    
+        private String nameOfIngredient;
+        private String unitMeasurement;
+        private float ingredientAmount;
+        private int numberOfCaloriesPerCup;
+        private double totalCalories;
+    
+    // public mrthods: set and return name of ingredient    
+    public void setNameOfIngredient(String nameOfIngredient) {
+        this.nameOfIngredient = nameOfIngredient;
+        //field member          parameter
+    }
+    public String getIngredientName() {
+        return nameOfIngredient;
+    }
+    
+    //Set and return unit measurement
+    public void setUnitMeasurement (String unitMeasurement) {
+        this.unitMeasurement = unitMeasurement;
+        //field member         parameter
+    }
+    public String getUnitMeasurement() {
+        return unitMeasurement;
+    }
+    
+    //Set and return ingredient amount
+    public void setIngredientAmount(float ingredientAmount) {
+        this.ingredientAmount = ingredientAmount;
+        //field member          parameter
+    }
+    public float getIngredientAmount() {
+        return ingredientAmount;
+    }
+    
+    //set and return number of calories per cup
+    public void setNumberOfCaloriesPerCup(int numberOfCaloriesPerCup){
+        this.numberOfCaloriesPerCup = numberOfCaloriesPerCup;
+        //field member                parameter
+    }
+    public int getNumberOfCaloriesPerCup() {
+        return numberOfCaloriesPerCup;
+    }
+    
+    //set and return total calories
+    public void setTotalCalories (double TotalCalories) {
+        this.totalCalories = totalCalories;
+        //field member       parameter
+    }
+    public double getTotalCalories() {
+        return totalCalories;
+    }
+    
+}
+
+/*Main method 
+*user executes program in the next class
+*/
